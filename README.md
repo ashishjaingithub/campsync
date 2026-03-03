@@ -33,4 +33,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Troubleshooting & Reliability
+
+If you encounter `404 Not Found` errors in the chat Assistant, it usually means the configured model is unavailable in your region or for your account tier.
+
+### 1. Run the Smoke Test
+We've included a diagnostic script to verify your connection and check model availability:
+```bash
+npx tsx scripts/smoke_test_api.ts
+```
+
+### 2. Verify Available Models
+If the smoke test fails, you can list all models available to your API key:
+```bash
+curl "https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"
+```
+
+### 3. Update Model
+If you need to switch models, update the `model` identifier in `src/app/api/chat/route.ts`.

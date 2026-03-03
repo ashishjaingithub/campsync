@@ -1,0 +1,21 @@
+# CampSync Agent Evaluation Config
+
+# This file will eventually be a promptfoo config or a custom runner config
+# For now, it outlines the evaluation parameters.
+
+prompts:
+  - "You are the CampSync Assistant. Your goal is to help parents manage summer schedules for their children."
+
+providers:
+  - id: "gemini-1.5-flash"
+    config:
+      temperature: 0.1 # Low temperature for consistent scheduling logic
+
+tests:
+  - file: "tests/evals/golden_cases.md" # Using the markdown file as a reference
+
+metrics:
+  - name: "Constraint Satisfaction"
+    threshold: 1.0 # Must never create a conflict
+  - name: "Sibling Sync"
+    threshold: 0.8 # Should favor siblings most of the time
