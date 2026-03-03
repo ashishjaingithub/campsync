@@ -1,8 +1,11 @@
 Building using Buildpacks and deploying container to Cloud Run service [[1mcampsync[m] in project [[1mgen-lang-client-0736836453[m] region [[1mus-central1[m]
 Building and deploying new service...
-Validating configuration...........................done
-Creating Container Repository.............................................................................................................................................done
-Uploading sources...................done
-failed
-Deployment failed
-ERROR: (gcloud.run.deploy) PERMISSION_DENIED: Build failed because the default service account is missing required IAM permissions. Follow the instructions at https://cloud.google.com/build/docs/cloud-build-service-account-updates#get_the_current_default_service_account_for_a_project to get the default service account for your project, and see https://cloud.google.com/run/docs/configuring/services/build-service-account for more details. Access Not Configured. Cloud Build has not been used in project 690254348559 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbuild.googleapis.com/overview?project=690254348559 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.. This command is authenticated as ashish.jain.email@gmail.com which is the active account specified by the [core/account] property.
+Validating configuration......done
+Uploading sources...........done
+Building Container........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+Setting IAM Policy...............done
+Creating Revision............................................................................................................................................................................................................................................done
+Routing traffic.....done
+Done.
+Service [[1mcampsync[m] revision [[1mcampsync-00001-44v[m] has been deployed and is serving [1m100[m percent of traffic.
+Service URL: [1mhttps://campsync-690254348559.us-central1.run.app[m
