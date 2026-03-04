@@ -51,7 +51,7 @@ describe('ChatPanel Component', () => {
                 <ChatPanel />
             </AIProvider>
         );
-        const input = screen.getByPlaceholderText(/e.g. Find art camps/i);
+        const input = screen.getByPlaceholderText(/e.g. Highly rated overnight coding camps/i);
         fireEvent.change(input, { target: { value: 'Hello Assistant' } });
         expect((input as HTMLInputElement).value).toBe('Hello Assistant');
     });
@@ -92,7 +92,7 @@ describe('ChatPanel Component', () => {
             </AIProvider>
         );
 
-        const input = screen.getByPlaceholderText(/e.g. Find art camps near me.../i);
+        const input = screen.getByPlaceholderText(/e.g. Highly rated overnight coding camps/i);
         fireEvent.change(input, { target: { value: 'Find STEM camps' } });
 
         // Use container query since form lacks accessible role

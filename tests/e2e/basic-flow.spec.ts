@@ -8,17 +8,17 @@ test.describe('CampSync Enterprise E2E', () => {
         // Check for the main title
         await expect(page.locator('h1')).toContainText('CampSync');
 
-        // Click "Load Demo Camps"
-        const loadDemoBtn = page.getByRole('button', { name: /Load Demo Camps/i });
+        // Click "Load Demo Data"
+        const loadDemoBtn = page.getByRole('button', { name: /Load Demo Data/i });
         if (await loadDemoBtn.isVisible()) {
             await loadDemoBtn.click();
         }
 
         // Verify children profiles header is visible after interaction (if they were added by demo)
-        await expect(page.getByText(/Children Profiles/i)).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Children Profiles', exact: true })).toBeVisible();
 
         // Verify the Export button exists
-        await expect(page.getByRole('button', { name: /Export Schedule/i })).toBeVisible();
+        await expect(page.getByRole('button', { name: /Export CSV/i })).toBeVisible();
     });
 
     test('should allow adding a child profile', async ({ page }) => {

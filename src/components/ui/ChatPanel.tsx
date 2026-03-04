@@ -135,6 +135,30 @@ export default function ChatPanel({ isSidebar = false }: { isSidebar?: boolean }
                                                 {camp.description}
                                             </p>
 
+                                            {camp.reviewSummary && (
+                                                <div className="mb-3 bg-blue-50/50 p-2 rounded-lg border border-blue-100 flex items-start gap-2">
+                                                    <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wider mt-0.5 shrink-0">Reviews</span>
+                                                    <p className="text-xs text-slate-600 italic leading-snug">{camp.reviewSummary}</p>
+                                                </div>
+                                            )}
+
+                                            {(camp.applicationDeadline || camp.earlyBirdDeadline) && (
+                                                <div className="mb-3 flex flex-col gap-1.5">
+                                                    {camp.earlyBirdDeadline && (
+                                                        <div className="flex items-center gap-1.5 text-xs">
+                                                            <span className="px-1.5 py-0.5 bg-green-100 text-green-700 rounded text-[9px] font-black uppercase tracking-wider shrink-0">Early Bird</span>
+                                                            <span className="text-slate-600 font-medium truncate">Ends {camp.earlyBirdDeadline}</span>
+                                                        </div>
+                                                    )}
+                                                    {camp.applicationDeadline && (
+                                                        <div className="flex items-center gap-1.5 text-xs">
+                                                            <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 rounded text-[9px] font-black uppercase tracking-wider shrink-0">Due Date</span>
+                                                            <span className="text-slate-600 font-medium truncate">{camp.applicationDeadline}</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 <div className="flex items-center gap-1 bg-slate-50 px-2 py-1 rounded text-slate-600 text-[10px] font-bold">
                                                     <MapPin size={10} /> {camp.location}
@@ -280,7 +304,7 @@ export default function ChatPanel({ isSidebar = false }: { isSidebar?: boolean }
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder={isLoading ? "Searching local & web..." : "e.g. Find art camps near me..."}
+                    placeholder={isLoading ? "Searching nationwide & synthesizing reviews..." : "e.g. Highly rated overnight coding camps in Texas..."}
                     disabled={isLoading}
                     className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50"
                 />

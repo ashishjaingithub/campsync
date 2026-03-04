@@ -51,7 +51,11 @@ export async function POST(req: NextRequest) {
             
             CRITICAL FORMATTING RULES:
             - When listing camps in your conversational text output, you MUST include the actual dates (e.g., Jun 8 - Jun 15) mapped from the Summer Weeks Schedule. Do NOT just say "Week 2".
-            - For ANY website links you provide (whether in text or in the 'website' field of discovery results), ALWAYS provide a full absolute URL including the protocol (e.g., https://www.example.com). Do NOT provide relative paths or domains without the protocol (e.g., example.com).`,
+            - For ANY website links you provide (whether in text or in the 'website' field of discovery results), ALWAYS provide a full absolute URL including the protocol (e.g., https://www.example.com). Do NOT provide relative paths or domains without the protocol.
+            - Pay close attention to any complex requirements the user has (e.g., ADHD-friendly, allergies, specific drop-off times) and ensure your discoveries strictly match those needs.
+            - When discovering camps, synthesize sentiment and reviews from platforms like Reddit, Yelp, Google Reviews, and ActivityHero. Summarize this in the 'reviewSummary' field of 'display_discovery_results'.
+            - Explicitly attempt to find 'applicationDeadline' and 'earlyBirdDeadline' for each discovered camp, returning them if found.
+            - If the user specifies a location (e.g., "California", "nationwide"), use the 'search_location' parameter in 'search_local_camps' and include it in your 'search_web_camps' queries to override their default ZIP code.`,
         });
 
         // Convert messages to Gemini history, excluding the last one which we'll send

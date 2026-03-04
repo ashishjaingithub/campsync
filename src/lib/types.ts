@@ -20,6 +20,9 @@ export interface Camp {
   price: number;
   tags: string[];
   website?: string;
+  reviewSummary?: string;
+  applicationDeadline?: string;
+  earlyBirdDeadline?: string;
 }
 
 export interface ScheduleEntry {

@@ -27,7 +27,10 @@ export const AgentToolDefinitions: FunctionDeclaration[] = [
                             },
                             tags: { type: SchemaType.ARRAY, items: { type: SchemaType.STRING } },
                             website: { type: SchemaType.STRING },
-                            description: { type: SchemaType.STRING }
+                            description: { type: SchemaType.STRING },
+                            reviewSummary: { type: SchemaType.STRING, description: 'A short summary of online reviews or sentiment from sites like Reddit or Yelp.' },
+                            applicationDeadline: { type: SchemaType.STRING, description: 'The absolute deadline to apply, if found.' },
+                            earlyBirdDeadline: { type: SchemaType.STRING, description: 'The deadline for early bird discount, if found.' }
                         },
                         required: ['id', 'name', 'price', 'location', 'website', 'weeks', 'ageRange']
                     }
@@ -68,6 +71,10 @@ export const AgentToolDefinitions: FunctionDeclaration[] = [
                 weekIndex: {
                     type: SchemaType.NUMBER,
                     description: 'The 0-indexed week (0-9) to search in.'
+                },
+                search_location: {
+                    type: SchemaType.STRING,
+                    description: 'Optional: Specific city, state, or region to search in, instead of the default zip code. For nationwide search.'
                 }
             },
             required: ['weekIndex']
